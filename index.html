@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Be My Valentine 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card" id="questionCard">
+  <h1>Hey, My Love Suraj💕</h1>
+
+  <p class="italic">
+    Every moment with you feels like magic ✨
+  </p>
+
+  <p class="question italic">
+    Will you be my Valentine?
+  </p>
+
+  <div class="buttons">
+    <button onclick="sayYes(); playMusic()">YES 💖</button>
+    <button id="noBtn" onmouseover="moveNo()">NO 😝</button>
+  </div>
+</div>
+
+<div class="card hidden" id="yesCard">
+  <h1>Yayyy 💞</h1>
+
+  <p class="italic">
+    You just made my heart the happiest 🥹  
+    Loving you is my favorite thing ❤️
+  </p>
+
+  <div class="photos">
+    <img src="pic1.jpg">
+    <img src="pic2.jpg">
+  </div>
+
+  <button class="secret-btn" onclick="goSecret()">
+    One last surprise… 💌
+  </button>
+</div>
+<div class="card hidden" id="finalCard">
+  <h1>My Forever Valentine 💍</h1>
+
+  <p class="italic">
+    I don’t know if I say this enough, but you mean more to me than words can ever fully explain. Still, I’m writing this because some feelings deserve to be written, not just felt.
+From the moment you came into my life, things quietly started changing for the better. You make ordinary days feel special and heavy days feel lighter. Your presence gives me comfort, your words give me strength, and your smile—whether you realize it or not—has become my favorite sight.
+I love the way you understand me, even when I don’t say much. I love how safe I feel with you, how I can be myself without pretending or hiding. With you, I don’t have to be perfect—I just have to be real.
+Thank you for being patient with me, for standing by me, and for choosing me every day. I’m grateful for every laugh we share, every little memory we create, and every dream we talk about together.
+No matter where life takes us, I want you to know this: you are deeply loved, truly appreciated, and always important to me. I’m lucky to have you—and I don’t take that lightly.
+    Thank you for choosing me.  
+    Thank you for loving me.  
+    Thank you for being my safe place 🤍
+  </p>
+
+  <p class="final-msg italic">
+    No matter where life takes us,  
+    I want my hand in yours —  
+    today, tomorrow, always 💖
+  </p>
+
+  <p class="italic">Happy Valentine’s Day 🌹</p>
+</div>
+<div class="hearts-container"></div>
+<script>
+function sayYes() {
+  document.getElementById("questionCard").style.display = "none";
+  document.getElementById("yesCard").classList.remove("hidden");
+}
+
+function moveNo() {
+  const btn = document.getElementById("noBtn");
+  btn.style.position = "absolute";
+  btn.style.left = Math.random() * 70 + "%";
+  btn.style.top = Math.random() * 70 + "%";
+}
+function startHearts() {
+  const container = document.querySelector(".hearts-container");
+
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+
+    container.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 6000);
+  }, 300);
+}
+function goSecret() {
+  document.getElementById("yesCard").style.display = "none";
+
+  const final = document.getElementById("finalCard");
+  final.classList.remove("hidden");
+  final.style.display = "block";
+
+  startHearts(); // 💓 START FLOATING HEARTS
+}
+function playMusic() {
+  document.getElementById("bgMusic").play();
+}
+</script>
+
+</body>
+</html>
